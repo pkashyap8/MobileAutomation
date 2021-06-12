@@ -2,6 +2,7 @@ package com.cyient.nativeapptest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -21,7 +22,17 @@ public class InstallAppTest {
 		
 		
 		AndroidDriver<WebElement> driver=new AndroidDriver<WebElement>(new URL("http://localhost:4723/wd/hub"), cap);
-
+		
+		driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
+		
+		driver.findElementByXPath("//*[@text='Dismiss']").click();
+		
+		driver.findElementByXPath("//*[@text='Profile']").click();
+		
+		
+		
+		
+		
 	}
 
 }
